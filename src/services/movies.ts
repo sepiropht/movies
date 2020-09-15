@@ -1,4 +1,10 @@
-import { CardProps } from "../components/Card";
+export interface Movies {
+  id: number;
+  title: string;
+  category: string;
+  likes: number;
+  dislikes: string;
+}
 
 const movies = [
   {
@@ -73,6 +79,6 @@ const movies = [
   },
 ];
 
-export const movies$: Promise<CardProps[]> = new Promise((resolve, reject) =>
+export const movies$: Promise<Movies[]> = new Promise((resolve, reject) =>
   setTimeout(resolve, 100, movies)
 );

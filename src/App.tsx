@@ -11,7 +11,7 @@ function App() {
   const [categoriesButton, setCategoriesButton] = useState<string[]>([]);
 
   const toggleCategory = (selectedCategory: string) => {
-    if (categories?.includes(selectedCategory)) {
+    if (categories.includes(selectedCategory)) {
       setCategories(
         categories.filter((category) => category !== selectedCategory)
       );
@@ -20,15 +20,15 @@ function App() {
     }
   };
   const deleteCard = (id: number) =>
-    setMovies(movies?.filter((movie) => movie.id !== id));
+    setMovies(movies.filter((movie) => movie.id !== id));
 
-  const CategoriesButtonList = categoriesButton?.map((category) => (
+  const CategoriesButtonList = categoriesButton.map((category) => (
     <Category category={category} onCategoryClick={toggleCategory} />
   ));
 
   const CardList = movies
-    ?.filter(
-      (movie) => categories?.includes(movie.category) || !categories?.length
+    .filter(
+      (movie) => categories.includes(movie.category) || !categories.length
     )
     .map((movie) => (
       <li key={movie?.id}>
@@ -44,7 +44,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setCategoriesButton([...new Set(movies?.map((movie) => movie.category))]);
+    setCategoriesButton([...new Set(movies.map((movie) => movie.category))]);
+    if (!movies.length) {
+      movies$.then((data) => {
+        setMovies(data);
+      });
+    }
   }, [movies]);
 
   return (

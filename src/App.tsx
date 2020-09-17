@@ -58,20 +58,22 @@ function App() {
 
   return (
     <div className="App">
-      {CardList}
-      <div>{CategoriesButtonList}</div>
-      <SliderButtons
-        onPrevClicked={() =>
-          setSliderState(sliderState > 0 ? sliderState - 1 : sliderState)
-        }
-        onNextClicked={() => setSliderState(() => sliderState + 1)}
-      ></SliderButtons>
-      <SetPaginationRadio
-        handleChange={(e) => {
-          setPaginationSize(parseInt(e.target.value));
-          setSliderState(0);
-        }}
-      ></SetPaginationRadio>
+      <div className="cards">{CardList}</div>
+      <div className="control">
+        {CategoriesButtonList}
+        <SliderButtons
+          onPrevClicked={() =>
+            setSliderState(sliderState > 0 ? sliderState - 1 : sliderState)
+          }
+          onNextClicked={() => setSliderState(sliderState + 1)}
+        ></SliderButtons>
+        <SetPaginationRadio
+          handleChange={(e) => {
+            setPaginationSize(parseInt(e.target.value));
+            setSliderState(0);
+          }}
+        ></SetPaginationRadio>
+      </div>
     </div>
   );
 }
@@ -82,7 +84,7 @@ function calculIndexes(
 ): [number, number] {
   const start = sliderState * paginationSize;
   const end = start + paginationSize;
-  console.log({ start, end });
   return [start, end];
 }
+
 export default App;

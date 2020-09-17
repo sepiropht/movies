@@ -1,4 +1,4 @@
-This project was bootstrapped with [watch online](https://movies-psi.vercel.app/).
+[watch online](https://movies-psi.vercel.app/).
 
 ## Available Scripts
 

@@ -93,7 +93,7 @@ const movies = [
   },
   {
     id: "13",
-    title: "Oceans 8",
+    title: "Eyes wide shut",
     category: "Comedy",
     likes: 4,
     dislikes: 1,

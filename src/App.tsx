@@ -25,8 +25,12 @@ function App() {
   const deleteCard = (id: number) =>
     setMovies(movies.filter((movie) => movie.id !== id));
 
-  const CategoriesButtonList = categoriesButton.map((category) => (
-    <Category category={category} onCategoryClick={toggleCategory} />
+  const CategoriesButtonList = categoriesButton.map((category, index) => (
+    <Category
+      key={index}
+      category={category}
+      onCategoryClick={toggleCategory}
+    />
   ));
 
   const CardList = movies
@@ -64,9 +68,19 @@ function App() {
           <div className="category-buttons">{CategoriesButtonList}</div>
           <SliderButtons
             onPrevClicked={() =>
-              setSliderState(sliderState > 0 ? sliderState - 1 : sliderState)
+              setSliderState(
+                sliderState > 0
+                  ? sliderState - 1
+                  : movies.length / paginationSize - 1
+              )
             }
-            onNextClicked={() => setSliderState(sliderState + 1)}
+            onNextClicked={() =>
+              setSliderState(
+                (sliderState + 1) * paginationSize === movies.length
+                  ? 0
+                  : sliderState + 1
+              )
+            }
           ></SliderButtons>
           <SetPaginationRadio
             handleChange={(e) => {

@@ -11,7 +11,7 @@ function App() {
   const [categories, setCategories] = useState<string[]>([]);
   const [categoriesButton, setCategoriesButton] = useState<string[]>([]);
   const [sliderState, setSliderState] = useState<number>(0);
-  const [paginationSize, setPaginationSize] = useState<number>(3);
+  const [paginationSize, setPaginationSize] = useState<number>(4);
 
   const toggleCategory = (selectedCategory: string) => {
     if (categories.includes(selectedCategory)) {

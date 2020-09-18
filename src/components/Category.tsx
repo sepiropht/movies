@@ -11,6 +11,9 @@ export const Category: React.FC<CategoryProps> = ({
   const [selected, toogleSelected] = useState<boolean>(false);
   return (
     <span
+      className={
+        !selected ? "category-button" : "category-button category-selected"
+      }
       onClick={() => {
         toogleSelected(!selected);
         onCategoryClick(category);

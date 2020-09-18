@@ -9,9 +9,13 @@ export const SliderButtons: React.FC<SliderButtonProps> = ({
   onNextClicked,
 }) => {
   return (
-    <>
-      <button onClick={onPrevClicked}>prev</button>{" "}
-      <button onClick={onNextClicked}>next</button>
-    </>
+    <div>
+      <span onClick={onPrevClicked}>
+        <i className="fas fa-step-backward"></i>
+      </span>{" "}
+      <span onClick={onNextClicked}>
+        <i className="fas fa-step-forward"></i>
+      </span>
+    </div>
   );
 };

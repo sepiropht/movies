@@ -57,22 +57,24 @@ function App() {
   }, [movies]);
 
   return (
-    <div className="App">
-      <div className="cards">{CardList}</div>
-      <div className="control">
-        {CategoriesButtonList}
-        <SliderButtons
-          onPrevClicked={() =>
-            setSliderState(sliderState > 0 ? sliderState - 1 : sliderState)
-          }
-          onNextClicked={() => setSliderState(sliderState + 1)}
-        ></SliderButtons>
-        <SetPaginationRadio
-          handleChange={(e) => {
-            setPaginationSize(parseInt(e.target.value));
-            setSliderState(0);
-          }}
-        ></SetPaginationRadio>
+    <div className="container">
+      <div className="App">
+        <div className="cards">{CardList}</div>
+        <div className="control">
+          <div className="category-buttons">{CategoriesButtonList}</div>
+          <SliderButtons
+            onPrevClicked={() =>
+              setSliderState(sliderState > 0 ? sliderState - 1 : sliderState)
+            }
+            onNextClicked={() => setSliderState(sliderState + 1)}
+          ></SliderButtons>
+          <SetPaginationRadio
+            handleChange={(e) => {
+              setPaginationSize(parseInt(e.target.value));
+              setSliderState(0);
+            }}
+          ></SetPaginationRadio>
+        </div>
       </div>
     </div>
   );

@@ -67,6 +67,9 @@ function App() {
         <div className="control">
           <div className="category-buttons">{CategoriesButtonList}</div>
           <SliderButtons
+            size={movies.length}
+            paginationSize={paginationSize}
+            currentStep={sliderState + 1}
             onPrevClicked={() =>
               setSliderState(
                 sliderState > 0

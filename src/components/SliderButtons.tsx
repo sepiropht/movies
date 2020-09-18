@@ -3,10 +3,16 @@ import React from "react";
 interface SliderButtonProps {
   onPrevClicked: () => void;
   onNextClicked: () => void;
+  paginationSize: number;
+  currentStep: number;
+  size: number;
 }
 export const SliderButtons: React.FC<SliderButtonProps> = ({
   onPrevClicked,
   onNextClicked,
+  paginationSize,
+  size,
+  currentStep,
 }) => {
   return (
     <div>
@@ -15,6 +21,10 @@ export const SliderButtons: React.FC<SliderButtonProps> = ({
       </span>{" "}
       <span onClick={onNextClicked}>
         <i className="fas fa-step-forward"></i>
+      </span>
+      <span>
+        {" "}
+        {currentStep}/{size / paginationSize}
       </span>
     </div>
   );

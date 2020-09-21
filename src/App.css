@@ -2,8 +2,8 @@ body {
   box-sizing: border-box;
 }
 .container {
-  display: flex;
-  align-items: center;
+  display: grid;
+  place-items: center;
   min-height: 100vh;
 }
 .App {

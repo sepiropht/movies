@@ -24,7 +24,7 @@ export const SliderButtons: React.FC<SliderButtonProps> = ({
       </span>
       <span>
         {" "}
-        {currentStep}/{size / paginationSize}
+        {currentStep}/{Math.ceil(size / paginationSize)}
       </span>
     </div>
   );

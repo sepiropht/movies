@@ -74,12 +74,12 @@ function App() {
               setSliderState(
                 sliderState > 0
                   ? sliderState - 1
-                  : movies.length / paginationSize - 1
+                  : Math.ceil(movies.length / paginationSize - 1)
               )
             }
             onNextClicked={() =>
               setSliderState(
-                (sliderState + 1) * paginationSize === movies.length
+                (sliderState + 1) * paginationSize > movies.length
                   ? 0
                   : sliderState + 1
               )

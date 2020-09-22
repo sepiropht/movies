@@ -79,7 +79,7 @@ function App() {
             }
             onNextClicked={() =>
               setSliderState(
-                (sliderState + 1) * paginationSize > movies.length
+                (sliderState + 1) * paginationSize > movies.length - 1
                   ? 0
                   : sliderState + 1
               )
